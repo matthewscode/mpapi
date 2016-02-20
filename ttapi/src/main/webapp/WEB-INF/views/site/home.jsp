@@ -8,8 +8,8 @@
 <title>MP:Workbench</title>
 <link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/ttapi.css" />">
 <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.16/angular.min.js"></script>
-<script src="resources/js/ttapp.js"></script> 
-<script src="resources/js/ckeditor/ckeditor.js"></script>
+<script src="<c:url value="/resources/js/ttapp.js" />"></script> 
+<script src="<c:url value="/resources/js/ckeditor/ckeditor.js" />"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js"></script>
@@ -60,7 +60,9 @@
 </div>
 
 <div class="ft-bottom">
-	<center><button ng-click="loadMore(25)">load more</button></center>
+	<center><button ng-click="loadMore(25)">load more</button>
+	<a href="<c:url value="/logout" />">logout</a>
+	</center>
 </div>
 </div>
 </div>
