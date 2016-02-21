@@ -15,7 +15,6 @@ public class WebAppInitializer implements WebApplicationInitializer {
 
         AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
         appContext.register(AppConfig.class);
-        System.out.println("getting into webappinit");
         container.addListener(new ContextLoaderListener(appContext));
         
         // Create the dispatcher servlet's Spring application context

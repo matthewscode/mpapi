@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
     
-	@RequestMapping("/home")
+	@RequestMapping
     public String list() {
         return "site/home";
     }

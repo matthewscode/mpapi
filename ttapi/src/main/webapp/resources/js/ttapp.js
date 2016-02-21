@@ -26,6 +26,7 @@ ttApp.directive('ckEditor', [function () {
 }])
 
 ttApp.controller('ApiController', ['$scope', '$http', function($scope, $http) {
+	$scope.loading = true;
 	var processData = function(data) {
 		// Sort
 		if($scope.options.sort && data) {
@@ -49,6 +50,7 @@ ttApp.controller('ApiController', ['$scope', '$http', function($scope, $http) {
 		
 		$http.get(url)
 			.success(function(data, status, headers, config) {
+				$scope.loading = false;
 				$scope.data = processData(data);
 				$scope.nextStart = 25;
 				if($scope.options.callback && typeof $scope.options.callback === 'function') {
@@ -86,12 +88,15 @@ ttApp.controller('ApiController', ['$scope', '$http', function($scope, $http) {
 
 ttApp.controller('FileController', ['$scope', '$http', function($scope, $http) {
 	$scope.showEditor = false;
+	$scope.editorLoading = false;
 	$scope.currentFile = { };
 	$scope.setEditor = function(url, checksumId, imgUrl, model){
+		$scope.showEditor = true;
+		$scope.editorLoading = true;
 		$scope.currentFile = model;
 		var fullUrl = url + checksumId;
 		$http.get(fullUrl).success(function(data, status, headers, config) {
-			$scope.showEditor = true;
+			$scope.editorLoading = false;
 			$scope.imgUrl = imgUrl;
 			$scope.checksumId = data.checksumId;
 			$scope.transcriptionId = data.transcriptionId;

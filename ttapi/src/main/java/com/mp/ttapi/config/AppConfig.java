@@ -11,7 +11,6 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.context.annotation.Import;
 
 import com.mp.ttapi.domain.FileTranslation;
 import com.mp.ttapi.domain.ImageChecksum;

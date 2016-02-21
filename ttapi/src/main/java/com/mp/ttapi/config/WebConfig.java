@@ -14,7 +14,6 @@ import org.springframework.web.util.UrlPathHelper;
 @EnableWebMvc
 @ComponentScan(basePackages = {"com.mp.ttapi"})
 @Configuration
-@Import({ SecurityConfig.class })
 public class WebConfig extends WebMvcConfigurerAdapter{
 
     @Override
