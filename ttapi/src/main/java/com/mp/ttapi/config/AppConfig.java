@@ -16,6 +16,7 @@ import com.mp.ttapi.domain.FileTranslation;
 import com.mp.ttapi.domain.ImageChecksum;
 import com.mp.ttapi.domain.ImageTranscription;
 import com.mp.ttapi.domain.ImageTranslation;
+import com.mp.ttapi.domain.UserKey;
 
 @ComponentScan(basePackages = { "com.mp.ttapi.config" })
 @Configuration
@@ -49,7 +50,7 @@ public class AppConfig {
     @Bean(name = "sessionFactory")
     public SessionFactory sessionFactory() {
         LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource());
-        sessionBuilder.addAnnotatedClasses(ImageChecksum.class, FileTranslation.class, ImageTranscription.class, ImageTranslation.class);
+        sessionBuilder.addAnnotatedClasses(ImageChecksum.class, FileTranslation.class, ImageTranscription.class, ImageTranslation.class, UserKey.class);
         sessionBuilder.addProperties(getHibernateProperties());
        return sessionBuilder.buildSessionFactory();
     }
