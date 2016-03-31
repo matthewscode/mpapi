@@ -7,17 +7,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mp.ttapi.domain.ImageTranscription;
 import com.mp.ttapi.domain.ImageTranslation;
 import com.mp.ttapi.dto.FileTranslationDTO;
 import com.mp.ttapi.dto.ImageChecksumDTO;
+import com.mp.ttapi.service.UserKeyService;
 import com.mp.ttapi.service.FileTranslationService;
 import com.mp.ttapi.service.ImageTranscriptionService;
 import com.mp.ttapi.service.ImageTranslationService;
@@ -33,6 +34,8 @@ public class ApiController {
 	private ImageTranscriptionService imageTranscriptionService;
 	@Autowired
 	private ImageTranslationService imageTranslationService;
+	@Autowired
+	private UserKeyService userKeyService;
 
 	@ResponseBody
 	@RequestMapping("/ft/all")
@@ -74,5 +77,12 @@ public class ApiController {
 	@RequestMapping(value = "/translation/create/", method = RequestMethod.POST)
 	public ImageChecksumDTO createImageTranslation(@RequestBody ImageTranslation it){
 		return imageTranslationService.createImageTranslation(it.getImageTranscription().getId(), it.getTranslationText());
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/user-key/create/", method = RequestMethod.POST)
+	public String addUserKey(@RequestParam("username") String username, @RequestParam("keyString") String keyString){
+		userKeyService.addUserKey(username, keyString);
+		return "Key Added";
 	}
 }

@@ -2,7 +2,6 @@ package com.mp.ttapi.dao;
 
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import com.mp.ttapi.domain.FileTranslation;
 import com.mp.ttapi.domain.ImageChecksum;
 
 @Repository("fileTranslationDAO")
-public class AlphaFileTranslationDAO implements FileTranslationDAO{
+public class FileTranslationDAOImpl implements FileTranslationDAO{
 
 	@Autowired
     private SessionFactory sessionFactory;
@@ -25,12 +24,8 @@ public class AlphaFileTranslationDAO implements FileTranslationDAO{
 
 	@Override
 	public boolean createImageChecksum(ImageChecksum ic) {
-		try{
-			sessionFactory.getCurrentSession().saveOrUpdate(ic);
-			return true;
-		}catch(HibernateException e){
-			return false;
-		}
+		sessionFactory.getCurrentSession().saveOrUpdate(ic);
+		return true;
 	}
 
 	@Override
@@ -40,12 +35,8 @@ public class AlphaFileTranslationDAO implements FileTranslationDAO{
 
 	@Override
 	public boolean createFileTranslation(FileTranslation ft) {
-		try{
 			sessionFactory.getCurrentSession().saveOrUpdate(ft);
 			return true;
-		}catch(HibernateException e){
-			return false;
-		}
 	}
 
 	@SuppressWarnings("unchecked")

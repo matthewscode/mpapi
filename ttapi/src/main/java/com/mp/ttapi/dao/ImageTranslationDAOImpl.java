@@ -9,7 +9,7 @@ import com.mp.ttapi.domain.ImageTranscription;
 import com.mp.ttapi.domain.ImageTranslation;
 
 @Repository
-public class AlphaImageTranslationDAO implements ImageTranslationDAO{
+public class ImageTranslationDAOImpl implements ImageTranslationDAO{
 
 	@Autowired
     private SessionFactory sessionFactory;

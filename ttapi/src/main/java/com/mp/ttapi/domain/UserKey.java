@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "key")
-public class Key {
+public class UserKey {
 
 
 	@Id
@@ -17,11 +17,11 @@ public class Key {
 	@Column(name = "id")
 	private int id;
 	
-	@Column(name = "user_id")
-	private int user_id;
+	@Column(name = "username")
+	private String username;
 	
-	@Column(name = "key")
-	private String key;
+	@Column(name = "key_string")
+	private String keyString;
 
 	public int getId() {
 		return id;
@@ -31,20 +31,20 @@ public class Key {
 		this.id = id;
 	}
 
-	public int getUser_id() {
-		return user_id;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getKey() {
-		return key;
+	public String getKeyString() {
+		return keyString;
 	}
 
-	public void setKey(String key) {
-		this.key = key;
+	public void setKeyString(String keyString) {
+		this.keyString = keyString;
 	}
 	
 	

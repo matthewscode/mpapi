@@ -9,7 +9,7 @@ import com.mp.ttapi.domain.ImageChecksum;
 import com.mp.ttapi.domain.ImageTranscription;
 
 @Repository
-public class AlphaImageTranscriptionDAO implements ImageTranscriptionDAO{
+public class ImageTranscriptionDAOImpl implements ImageTranscriptionDAO{
 
 	@Autowired
     private SessionFactory sessionFactory;

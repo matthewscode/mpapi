@@ -18,7 +18,7 @@ import com.mp.ttapi.dto.ImageChecksumDTO;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-public class AlphaFileTranslationService implements FileTranslationService {
+public class FileTranslationServiceImpl implements FileTranslationService {
 	
 	@Autowired
 	private FileTranslationDAO fileTranslationDAO;
