@@ -69,13 +69,13 @@ public class ApiController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/transcription/create/", method = RequestMethod.POST)
-	public ImageChecksumDTO createImageTranscription(@RequestBody ImageTranscription it){
+	public ImageChecksumDTO createImageTranscription(HttpServletRequest request, HttpServletResponse response, @RequestBody ImageTranscription it){
 		return imageTranscriptionService.createImageTranscription(it.getImageChecksum().getId(), it.getTranscriptionText());
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/translation/create/", method = RequestMethod.POST)
-	public ImageChecksumDTO createImageTranslation(@RequestBody ImageTranslation it){
+	public ImageChecksumDTO createImageTranslation(HttpServletRequest request, HttpServletResponse response, @RequestBody ImageTranslation it){
 		return imageTranslationService.createImageTranslation(it.getImageTranscription().getId(), it.getTranslationText());
 	}
 	
