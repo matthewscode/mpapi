@@ -30,7 +30,7 @@ public class AppConfig {
         
         //tesla db
         ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_dd00d9c9d065aef");
-        ds.setUsername("b2dd12543c59b8");
+        ds.setUsername("bd50b7900ba27a");
         ds.setPassword("a01f13ba");
         return ds;
 
