@@ -29,16 +29,17 @@ public class AppConfig {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         
         //tesla db
-        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_dd00d9c9d065aef");
-        ds.setUsername("bd50b7900ba27a");
-        ds.setPassword("a01f13ba");
-        return ds;
+//        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_dd00d9c9d065aef");
+//        ds.setUsername("bd50b7900ba27a");
+//        ds.setPassword("a01f13ba");
+//        return ds;
 
         //mizuno-golf
-//        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_bc884b387716895");
-//        ds.setUsername("bafc0f9aca5f1c");
-//        ds.setPassword("0744bba3");
-//        
+        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_bc884b387716895");
+        ds.setUsername("bafc0f9aca5f1c");
+        ds.setPassword("0744bba3");
+        return ds;
+        
       //zen-pencils DB
 //      ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_fa54bbc759fd73e");
 //      ds.setUsername("b2dd12543c59b8");
