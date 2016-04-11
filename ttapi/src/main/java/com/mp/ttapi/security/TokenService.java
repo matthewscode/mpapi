@@ -54,7 +54,7 @@ public class TokenService {
 	public boolean isTokenValid(String token) {
 		Long sysTime = (Long)(System.currentTimeMillis() / 1000);
 		Long tokenTime = Long.parseLong(decrypt(token));
-		if(((sysTime - tokenTime) <= 5000) && ((sysTime - tokenTime) > 0)){
+		if(((sysTime - tokenTime) <= 5000) && ((sysTime - tokenTime) >= 0)){
 			return true;
 		}
 		return false;
