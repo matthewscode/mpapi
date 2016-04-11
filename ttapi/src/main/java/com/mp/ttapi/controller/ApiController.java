@@ -18,7 +18,7 @@ import com.mp.ttapi.domain.ImageTranscription;
 import com.mp.ttapi.domain.ImageTranslation;
 import com.mp.ttapi.dto.FileTranslationDTO;
 import com.mp.ttapi.dto.ImageChecksumDTO;
-import com.mp.ttapi.service.UserKeyService;
+import com.mp.ttapi.security.TokenService;
 import com.mp.ttapi.service.FileTranslationService;
 import com.mp.ttapi.service.ImageTranscriptionService;
 import com.mp.ttapi.service.ImageTranslationService;
@@ -35,24 +35,30 @@ public class ApiController {
 	@Autowired
 	private ImageTranslationService imageTranslationService;
 	@Autowired
-	private UserKeyService userKeyService;
+	private TokenService tokenService;
 
 	@ResponseBody
 	@RequestMapping("/ft/all")
-	public List<FileTranslationDTO> fileTranslations(HttpServletRequest request, HttpServletResponse response) {
-	    return fileTranslationService.getAllFileTranslationsForDisplay();
+	public List<FileTranslationDTO> fileTranslations(@RequestParam("token") String token, HttpServletRequest request, HttpServletResponse response) {
+			return fileTranslationService.getAllFileTranslationsForDisplay();
 	}
 	
 	@ResponseBody
 	@RequestMapping("/ft/start/{startRow}/end/{endRow}")
-	public List<FileTranslationDTO> specifiedFileTranslation(@PathVariable("startRow") int start, @PathVariable("endRow") int stop) {
-	    return fileTranslationService.getFileTranslationsByRow(start,stop);
+	public List<FileTranslationDTO> specifiedFileTranslation(@PathVariable("startRow") int start, @PathVariable("endRow") int stop, @RequestParam("token") String token) {
+		if(tokenService.isTokenValid(token)){
+			return fileTranslationService.getFileTranslationsByRow(start,stop);
+		}
+		return null;
 	}
 	
 	@ResponseBody
 	@RequestMapping("/ic/get/transription/translation/{checksumId}")
-	public ImageChecksumDTO specifiedFileTranslation(@PathVariable("checksumId") int checksumId) {
-	    return fileTranslationService.getImageChecksumDto(checksumId);
+	public ImageChecksumDTO specifiedFileTranslation(@PathVariable("checksumId") int checksumId, @RequestParam("token") String token) {
+		if(tokenService.isTokenValid(token)){
+			return fileTranslationService.getImageChecksumDto(checksumId);
+		}
+		return null;
 	}
 	
 	@ResponseBody
@@ -69,20 +75,19 @@ public class ApiController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/transcription/create/", method = RequestMethod.POST)
-	public ImageChecksumDTO createImageTranscription(HttpServletRequest request, HttpServletResponse response, @RequestBody ImageTranscription it){
-		return imageTranscriptionService.createImageTranscription(it.getImageChecksum().getId(), it.getTranscriptionText());
+	public ImageChecksumDTO createImageTranscription(HttpServletRequest request, HttpServletResponse response, @RequestBody ImageTranscription it, @RequestParam("token") String token){
+		if(tokenService.isTokenValid(token)){
+			return imageTranscriptionService.createImageTranscription(it.getImageChecksum().getId(), it.getTranscriptionText());
+		}
+		return null;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value = "/translation/create/", method = RequestMethod.POST)
-	public ImageChecksumDTO createImageTranslation(HttpServletRequest request, HttpServletResponse response, @RequestBody ImageTranslation it){
-		return imageTranslationService.createImageTranslation(it.getImageTranscription().getId(), it.getTranslationText());
-	}
-	
-	@ResponseBody
-	@RequestMapping(value = "/user-key/create/", method = RequestMethod.POST)
-	public String addUserKey(@RequestParam("username") String username, @RequestParam("keyString") String keyString){
-		userKeyService.addUserKey(username, keyString);
-		return "Key Added";
+	public ImageChecksumDTO createImageTranslation(HttpServletRequest request, HttpServletResponse response, @RequestBody ImageTranslation it, @RequestParam("token") String token){
+		if(tokenService.isTokenValid(token)){
+			return imageTranslationService.createImageTranslation(it.getImageTranscription().getId(), it.getTranslationText());
+		}
+		return null;
 	}
 }
