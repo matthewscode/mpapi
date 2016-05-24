@@ -29,9 +29,9 @@ public class AppConfig {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         
         //tesla db
-        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net:3306/heroku_dd00d9c9d065aef");
-        ds.setUsername("bd50b7900ba27a");
-        ds.setPassword("a01f13ba");
+        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_bab273b5d316bf5");
+        ds.setUsername("bc27b6a0eb9c42");
+        ds.setPassword("969dd089");
         return ds;
 
         //mizuno-golf
