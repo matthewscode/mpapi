@@ -35,15 +35,16 @@ public class AppConfig {
 //        return ds;
 
         //mizuno-golf
-        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_49ffdd17f0afee0");
-        ds.setUsername("b83af1e37b42fe");
-        ds.setPassword("44f0184f");
-       return ds; 
+//        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_49ffdd17f0afee0");
+//        ds.setUsername("b83af1e37b42fe");
+//        ds.setPassword("44f0184f");
+//       return ds; 
+        
       //zen-pencils DB
-//      ds.setUrl("jdbc:mysql://@us-cdbr-iron-east-04.cleardb.net/heroku_d694844b87d61ea");
-//      ds.setUsername("bfaf834bd27376");
-//      ds.setPassword("6a241d46");
-//      return ds;
+      ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_d694844b87d61ea");
+      ds.setUsername("bfaf834bd27376");
+      ds.setPassword("6a241d46");
+      return ds;
         
     }
 
