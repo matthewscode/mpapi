@@ -29,20 +29,20 @@ public class AppConfig {
         ds.setDriverClassName("com.mysql.jdbc.Driver");
         
         //tesla db
-        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_bab273b5d316bf5");
-        ds.setUsername("bc27b6a0eb9c42");
-        ds.setPassword("969dd089");
-        return ds;
+//        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_bab273b5d316bf5");
+//        ds.setUsername("bc27b6a0eb9c42");
+//        ds.setPassword("969dd089");
+//        return ds;
 
         //mizuno-golf
-//        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_bc884b387716895");
-//        ds.setUsername("bafc0f9aca5f1c");
-//        ds.setPassword("0744bba3");
-//        
+        ds.setUrl("jdbc:mysql://us-cdbr-iron-east-04.cleardb.net/heroku_49ffdd17f0afee0");
+        ds.setUsername("b83af1e37b42fe");
+        ds.setPassword("44f0184f");
+       return ds; 
       //zen-pencils DB
-//      ds.setUrl("jdbc:mysql://us-cdbr-iron-east-03.cleardb.net/heroku_fa54bbc759fd73e");
-//      ds.setUsername("b2dd12543c59b8");
-//      ds.setPassword("19f267a1");
+//      ds.setUrl("jdbc:mysql://@us-cdbr-iron-east-04.cleardb.net/heroku_d694844b87d61ea");
+//      ds.setUsername("bfaf834bd27376");
+//      ds.setPassword("6a241d46");
 //      return ds;
         
     }
